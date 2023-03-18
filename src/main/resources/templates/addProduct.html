@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/mainPage.css" type="text/css">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- Здесь вы можете разместить содержимое вашей страницы -->
+
+    <div>
+        <form action="http://localhost:8083/saveProduct" method="post" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="discount">Discount:</label>
+            <input type="text" id="discount" name="discount" required><br><br>
+
+            <label for="count">Count:</label>
+            <input type="text" id="count" name="count" required><br><br>
+
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" required><br><br>
+
+            <label for="image">Price:</label>
+            <input type="file" id="image" name="image" required><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <!-- Включить подвал -->
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/mainPage.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/mainPage.css" type="text/css">
+
+    <link rel="stylesheet" href="/css/products.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/products.css" type="text/css">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <div>
+        <div class="product-header-div">
+            <div class="product-header-title-div">
+
+            </div>
+            <div class="product-header-filters-div">
+                <a href="http://localhost:8083/addProducts">
+                      Add product
+                </a>
+            </div>
+        </div>
+        <div class="product-main-div">
+            <div class="scroller">
+                <form <!--th:action="@{/products}"--> method="get">
+                    <div>
+                        <label>Brand:</label>
+                        <select name="brand">
+                            <option value="">All</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Huawei">Huawei</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Price:</label>
+                        <input type="number" name="minPrice" placeholder="Min">
+                        <input type="number" name="maxPrice" placeholder="Max">
+                    </div>
+                    <div>
+                        <button type="submit">Filter</button>
+                    </div>
+                </form>
+            </div>
+            <div class="product-div">
+                <div class="product-container" th:each="sneaker : ${sneakers}">
+                       <div class="img-container">
+                           <img  class="product-img" th:src="@{${'/api/images/' + sneaker.id}}", th:alt="${'/api/images/' + sneaker.id}">
+                       </div>
+                        <div class="product-description-container">
+                            <p class="product-card-name" th:text="${sneaker.name}"></p>
+                            <p class="product-card-price" th:text="${ 'USD ' + sneaker.price}"></p>
+                        </div>
+                        <a class="product-link" href="#"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

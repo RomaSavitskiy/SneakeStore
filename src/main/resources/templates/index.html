@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SneakerStore</title>
+    <link rel="stylesheet" href="/css/mainPage.css" type="text/css">
+    <script src="/script/script.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<main>
+    <div class="main-title-div">
+        <div class="brends-div" ></div>
+        <div class="title-div-first">
+            <p class="title-text">YOUR SNEAKERS</p>
+        </div>
+        <div class="title-div-second">
+           <p class="title-text">YOUR LIFESTYLE</p>
+        </div>
+        <br>
+        <br>
+        <div class="main-count-text-container">
+            <p class="main-count-text">Shop with the highest quality shoes for the convenience and comfort of your feet.</p>
+        </div>
+        <div class="main-count-text-container">
+            <p class="main-count-text">More than 10,000 pairs of sneakers from various brands.</p>
+        </div>
+        <div class="link-container">
+            <div class="link-div">
+                <a class="main-link" href="http://localhost:8083/products">Shop</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-image-container">
+        <img class="main-img" src="/img/basketball-game.jpg" alt="Basketball game">
+    </div>
+    <button onclick="removeDiv()">Удалить элемент div</button>
+</main>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

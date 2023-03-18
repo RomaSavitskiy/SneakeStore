@@ -1,0 +1,104 @@
+/* Global */
+
+div {
+    /*border: black solid 1px;*/
+}
+
+/* Product header */
+.product-header-div {
+    height: 5rem;
+    display: flex;
+}
+
+.product-main-div {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-header-title-div {
+    height: 100%;
+    width: 17rem;
+}
+
+.product-header-filters-div {
+    height: 100%;
+    width: 17rem;
+    margin-left: 75rem;
+}
+
+.photo-cell {
+    width: 33.33%;
+    text-align: center;
+}
+
+/* Main */
+.scroller {
+    height: 30rem;
+    width: 20rem;
+}
+
+.product-div {
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.product-container {
+    height: 500px;
+    width: 400px;
+    /* можно задать другую ширину для каждого элемента */
+    box-sizing: border-box;
+    /* чтобы размер элемента включал границы и отступы */
+    margin: 4rem 4rem;
+    /* убираем отступы между элементами */
+
+    display: flex;
+    flex-direction: column;
+}
+
+.img-container {
+    height: 400px;
+    width: 400px;
+}
+
+.product-img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-description-container {
+    width: 400px;
+    height: 100px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.product-card-name {
+    margin-top: 10px;
+
+    font-size: 23px;
+    font-weight: 500;
+    color: black;
+}
+
+.product-card-price {
+    margin-top: 5px;
+
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+
+.product-link {
+    position: absolute;
+    height: 500px;
+    width: 400px;
+
+    /*border: black solid 1px;*/
+    z-index: 2;
+}
