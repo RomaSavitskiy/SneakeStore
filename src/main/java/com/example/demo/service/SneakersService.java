@@ -1,12 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Sneakers;
-import com.example.demo.entity.WomenSneakers;
 import com.example.demo.repository.SneakersRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -45,5 +42,9 @@ public class SneakersService {
         sneakers.setGender(gender);
 
         return sneakers;
+    }
+
+    public List<Sneakers> findAllByGender(String gender) {
+        return sneakersRepository.findByGender(gender);
     }
 }

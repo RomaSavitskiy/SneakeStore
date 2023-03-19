@@ -1,13 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.KidSneakers;
-import com.example.demo.entity.MenSneakers;
 import com.example.demo.entity.Sneakers;
-import com.example.demo.entity.WomenSneakers;
-import com.example.demo.service.KidSneakersService;
-import com.example.demo.service.MenSneakersService;
 import com.example.demo.service.SneakersService;
-import com.example.demo.service.WomenSneakersService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.Objects;
 
 @RequestMapping()
 @RequiredArgsConstructor
@@ -26,9 +18,7 @@ import java.util.Objects;
 @Slf4j
 public class SneakerController {
     private final SneakersService sneakersService;
-    private final MenSneakersService menSneakersService;
-    private final WomenSneakersService womenSneakersService;
-    private final KidSneakersService kidSneakersService;
+
     @GetMapping("/main")
     public String main() throws IOException {
 
@@ -66,49 +56,28 @@ public class SneakerController {
                              @RequestParam("price") Long price,
                              @RequestParam("image") MultipartFile image,
                              @RequestParam("gender") String gender) throws IOException {
-        log.info("before");
 
         Sneakers sneakers = sneakersService.setSneakersBody(name, discount, count, price, image, gender);
         sneakersService.save(sneakers);
-
-        if(Objects.equals(gender, "men")) {
-            MenSneakers menSneakers = new MenSneakers();
-            menSneakersService.setMenSneakersBody(menSneakers, sneakers);
-            menSneakersService.save(menSneakers);
-        }
-
-        if(Objects.equals(gender, "women")) {
-            WomenSneakers womenSneakers = new WomenSneakers();
-            womenSneakersService.setWomenSneakersBody(womenSneakers, sneakers);
-            womenSneakersService.save(womenSneakers);
-        }
-
-        if(Objects.equals(gender, "kid")) {
-            KidSneakers kidSneakers = new KidSneakers();
-            kidSneakersService.setKidSneakersBody(kidSneakers, sneakers);
-            kidSneakersService.save(kidSneakers);
-        }
-
-        log.info("After");
 
         return "addProduct";
     }
 
     @GetMapping("/men_sneakers")
     public String menSneakers(Model model) {
-        model.addAttribute("menSneakers", menSneakersService.findAll());
+        model.addAttribute("menSneakers", sneakersService.findAllByGender("men"));
         return "men_sneakers";
     }
 
     @GetMapping("/women_sneakers")
     public String womenSneakers(Model model) {
-        model.addAttribute("womenSneakers", womenSneakersService.findAll());
+        model.addAttribute("womenSneakers", sneakersService.findAllByGender("women"));
         return "women_sneakers";
     }
 
     @GetMapping("/kid_sneakers")
     public String kidSneakers(Model model) {
-        model.addAttribute("kidSneakers", kidSneakersService.findAll());
+        model.addAttribute("kidSneakers",sneakersService.findAllByGender("kid"));
         return "kid_sneakers";
     }
 }
