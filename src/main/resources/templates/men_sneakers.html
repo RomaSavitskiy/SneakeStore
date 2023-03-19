@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/css/mainPage.css" type="text/css">
+  <link rel="stylesheet" href="../static/css/mainPage.css" type="text/css">
+
+  <link rel="stylesheet" href="/css/products.css" type="text/css">
+  <link rel="stylesheet" href="../static/css/products.css" type="text/css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div>
+  <div class="product-header-div">
+    <div class="product-header-title-div">
+
+    </div>
+    <div class="product-header-filters-div">
+      <a href="http://localhost:8083/addProducts">
+        Add product
+      </a>
+    </div>
+  </div>
+  <div class="product-main-div">
+    <div class="product-div">
+      <div class="product-container" th:each="menSneaker : ${menSneakers}">
+        <div class="img-container">
+          <img  class="product-img" th:src="@{${'/api/images/' + menSneaker.id}}", th:alt="${'/api/images/' + menSneaker.id}">
+        </div>
+        <div class="product-description-container">
+          <p class="product-card-name" th:text="${menSneaker.name}"></p>
+          <p class="product-card-price" th:text="${ 'USD ' + menSneaker.price}"></p>
+        </div>
+        <a class="product-link" href="#"></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

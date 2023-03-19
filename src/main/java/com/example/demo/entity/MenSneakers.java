@@ -7,11 +7,11 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "all_sneakers")
-public class Sneakers {
+@Table(name = "men_sneakers")
+public class MenSneakers {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @OrderColumn(name = "name")
     private String name;
     @OrderColumn(name = "count")
