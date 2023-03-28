@@ -8,7 +8,7 @@ spring:
   # при запуске приложения, создавал новую БД (чтобы обновлял, пишем update)
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     # выводит в консоль все действия, которые происходят с БД
     show-sql: true
     properties:

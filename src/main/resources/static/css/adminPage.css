@@ -1,0 +1,39 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px black;
+}
+
+.item {
+    width: calc(100% / 3 - 10px);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.item:hover {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination a {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    background-color: #ccc;
+}

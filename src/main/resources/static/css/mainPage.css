@@ -18,7 +18,7 @@ body {
 
 /* Header */
 .header-div {
-    height: 5rem;
+    height: 6rem;
 
     background-color: #ffffff;
     color: #000;
@@ -47,8 +47,8 @@ body {
 }
 
 .navigate-div {
-    margin-left: 18%;
-    width: 40rem;
+    margin-left: 15rem;
+    width: 50rem;
     display: inline;
 }
 
@@ -73,11 +73,23 @@ body {
     text-decoration: none;
 }
 
+.admin-link-div {
+    position: absolute;
+    width: 8rem;
+    height: 3rem;
+
+    margin-left: 91rem;
+    margin-top: 1rem;
+
+    text-align: center;
+}
+
 .signin-div {
+    position: absolute;
     width: 5rem;
     height: 3rem;
 
-    margin-left: 15rem;
+    margin-left: 102rem;
     margin-top: 1rem;
 
     text-align: center;
@@ -106,10 +118,11 @@ body {
 }
 
 .signup-div {
+    position: absolute;
     width: 5rem;
     height: 3rem;
 
-    margin-left: 3rem;
+    margin-left: 110rem;
     margin-top: 1rem;
 
     text-align: center;

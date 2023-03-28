@@ -23,7 +23,7 @@
                 </a>
             </div>
         </div>
-        <div class="product-main-div">
+        <div class="products-main-div">
             <div class="scroller">
                 <form <!--th:action="@{/products}"--> method="get">
                     <div>
@@ -45,20 +45,24 @@
                     </div>
                 </form>
             </div>
-            <div class="product-div">
-                <div class="product-container" th:each="sneaker : ${sneakers}">
+            <div class="products-div">
+                <div class="products-container" th:each="sneaker : ${sneakers}">
                        <div class="img-container">
                            <img  class="product-img" th:src="@{${'/api/images/' + sneaker.id}}", th:alt="${'/api/images/' + sneaker.id}">
                        </div>
                         <div class="product-description-container">
                             <p class="product-card-name" th:text="${sneaker.name}"></p>
-                            <p class="product-card-price" th:text="${ 'USD ' + sneaker.price}"></p>
+                            <p class="product-card-gender" th:text="${sneaker.gender}"></p>
+                            <div class="price-discount-div">
+                                <p class="product-card-price" th:if="${sneaker.discount == 0}" th:text="${ 'USD ' + sneaker.price}"></p>
+                                <p class="product-card-price-discount-new" th:if="${sneaker.discount > 0}" th:text="${ 'USD ' + sneaker.price * (100 - sneaker.discount) / 100}"></p>
+                                <p class="product-card-price-discount-old" th:if="${sneaker.discount > 0}" th:text="${ 'USD ' + sneaker.price}"></p>
+                            </div>
                         </div>
-                        <a class="product-link" href="#"></a>
+                        <a class="product-link" th:href="@{http://localhost:8083/product/{id}(id=${sneaker.id})}"> </a>
                 </div>
             </div>
         </div>
-
     </div>
 
     <div th:replace="fragments/footer :: footer"></div>

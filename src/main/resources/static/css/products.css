@@ -10,7 +10,7 @@ div {
     display: flex;
 }
 
-.product-main-div {
+.products-main-div {
     height: auto;
     display: flex;
     flex-direction: row;
@@ -38,7 +38,7 @@ div {
     width: 20rem;
 }
 
-.product-div {
+.products-div {
     height: auto;
     width: 100%;
 
@@ -47,7 +47,7 @@ div {
     align-items: stretch;
 }
 
-.product-container {
+.products-container {
     height: 500px;
     width: 400px;
     /* можно задать другую ширину для каждого элемента */
@@ -86,12 +86,46 @@ div {
     color: black;
 }
 
-.product-card-price {
-    margin-top: 5px;
+.product-card-gender {
+    margin-top: 1px;
 
     font-size: 25px;
     font-weight: 500;
     color: black;
+
+    opacity: 70%;
+}
+
+.product-card-price {
+    margin-top: 1px;
+
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+
+.price-discount-div {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-card-price-discount-new {
+    align-items: start;
+
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+
+.product-card-price-discount-old {
+    margin-left: 15px;
+
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+    opacity: 70%;
+    text-decoration: line-through;
 }
 
 .product-link {

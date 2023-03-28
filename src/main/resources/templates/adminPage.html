@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Admin page</title>
     <link rel="stylesheet" href="/css/mainPage.css" type="text/css">
     <link rel="stylesheet" href="../static/css/mainPage.css" type="text/css">
 
     <link rel="stylesheet" href="/css/products.css" type="text/css">
     <link rel="stylesheet" href="../static/css/products.css" type="text/css">
+
+    <link rel="stylesheet" href="/css/adminPage.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/adminPage.css" type="text/css">
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
@@ -23,19 +26,14 @@
             </a>
         </div>
     </div>
-    <div class="product-main-div">
-        <div class="product-div">
-            <div class="product-container" th:each="kidSneaker : ${kidSneakers}">
-                <div class="img-container">
-                    <img  class="product-img" th:src="@{${'/api/images/' + kidSneaker.id}}", th:alt="${'/api/images/' + kidSneaker.id}">
-                </div>
-                <div class="product-description-container">
-                    <p class="product-card-name" th:text="${kidSneaker.name}"></p>
-                    <p class="product-card-price" th:text="${ 'USD ' + kidSneaker.price}"></p>
-                </div>
-                <a class="product-link" href="#"></a>
-            </div>
-        </div>
+    <<div class="container">
+        <h1>Catalog</h1>
+        <div class="items">
+
+<!--        <div class="pagination">-->
+<!--            <a th:href="@{/catalog?page=${page - 1}}" th:if="${page > 0}">&lt;&lt; Previous</a>-->
+<!--            <a th:href="@{/catalog?page=${page + 1}}" th:if="${not #lists.isEmpty(items)}">Next &gt;&gt;</a>-->
+<!--        </div>-->
     </div>
 
 </div>

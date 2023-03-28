@@ -26,3 +26,8 @@ function removeDiv() {
 
     parent.appendChild(child);
 }
+
+function setDiscountStyle() {
+    var priceText = document.getElementById("productId");
+    priceText.style.color = "#9900FF";
+}

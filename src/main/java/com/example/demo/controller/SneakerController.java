@@ -5,12 +5,17 @@ import com.example.demo.service.SneakersService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RequestMapping()
 @RequiredArgsConstructor
@@ -30,10 +35,19 @@ public class SneakerController {
         return "addProduct";
     }
 
-    @GetMapping(value = "/products")
-    public String products(Model model) {
-        model.addAttribute("sneakers", sneakersService.findAll());
-        return "products";
+    @GetMapping("/adminMenu")
+    public String adminPage() {
+        return "adminPage";
+    }
+
+    @GetMapping("/catalog")
+    public String catalog(Model model, @RequestParam(defaultValue = "0") int page) {
+        Pageable pageable = PageRequest.of(page, 20);
+        Page<Sneakers> items = sneakersService.getPage(pageable);
+
+        model.addAttribute("sneakersPage", items);
+
+        return "adminPage";
     }
 
     @PostMapping("showImage")
@@ -63,21 +77,40 @@ public class SneakerController {
         return "addProduct";
     }
 
+    @GetMapping(value = "/products")
+    public String showSneakers(Model model) {
+        model.addAttribute("sneakers", sneakersService.findAll());
+        return "products";
+    }
+
     @GetMapping("/men_sneakers")
-    public String menSneakers(Model model) {
-        model.addAttribute("menSneakers", sneakersService.findAllByGender("men"));
-        return "men_sneakers";
+    public String showMenSneakers(Model model) {
+        model.addAttribute("sneakers", sneakersService.findAllByGender("men"));
+        return "products";
     }
 
     @GetMapping("/women_sneakers")
-    public String womenSneakers(Model model) {
-        model.addAttribute("womenSneakers", sneakersService.findAllByGender("women"));
-        return "women_sneakers";
+    public String showWomenSneakers(Model model) {
+        model.addAttribute("sneakers", sneakersService.findAllByGender("women"));
+        return "products";
     }
 
     @GetMapping("/kid_sneakers")
     public String kidSneakers(Model model) {
-        model.addAttribute("kidSneakers",sneakersService.findAllByGender("kid"));
-        return "kid_sneakers";
+        model.addAttribute("sneakers",sneakersService.findAllByGender("kid"));
+        return "products";
+    }
+
+    @GetMapping("/discount_sneakers")
+    public String discountSneakers(Model model) {
+        model.addAttribute("sneakers",sneakersService.findAllWithDiscount());
+        return "products";
+    }
+
+    @GetMapping("/product/{id}")
+    public String product(@PathVariable Long id, Model model) {
+        model.addAttribute("product", sneakersService.findById(id));
+
+        return "product";
     }
 }
