@@ -41,7 +41,7 @@ public class SneakersService {
         Sneakers sneakers = new Sneakers();
         sneakers.setName(name);
         sneakers.setPrice(price);
-        sneakers.setImage(image.getBytes());
+     /*   sneakers.setImage(image.getBytes());*/
         sneakers.setCount(count);
         sneakers.setDiscount(discount);
         sneakers.setCreateDate(new Date());

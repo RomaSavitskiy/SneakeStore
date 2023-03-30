@@ -17,36 +17,13 @@
             <div class="product-header-title-div">
 
             </div>
-            <div class="product-header-filters-div">
-                <a href="http://localhost:8083/addProducts">
-                      Add product
-                </a>
-            </div>
         </div>
         <div class="products-main-div">
             <div class="scroller">
-                <form <!--th:action="@{/products}"--> method="get">
-                    <div>
-                        <label>Brand:</label>
-                        <select name="brand">
-                            <option value="">All</option>
-                            <option value="Apple">Apple</option>
-                            <option value="Samsung">Samsung</option>
-                            <option value="Huawei">Huawei</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Price:</label>
-                        <input type="number" name="minPrice" placeholder="Min">
-                        <input type="number" name="maxPrice" placeholder="Max">
-                    </div>
-                    <div>
-                        <button type="submit">Filter</button>
-                    </div>
-                </form>
             </div>
             <div class="products-div">
                 <div class="products-container" th:each="sneaker : ${sneakers}">
+                     <img th:href="@{${'/api/images/' + sneaker.id}}" alt="hello">
                        <div class="img-container">
                            <img  class="product-img" th:src="@{${'/api/images/' + sneaker.id}}", th:alt="${'/api/images/' + sneaker.id}">
                        </div>

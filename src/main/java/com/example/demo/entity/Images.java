@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -11,7 +12,10 @@ public class Images {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sneaker_id")
-    private Sneakers sneaker;
+    @Lob
+    @Column(name = "Image", length = Integer.MAX_VALUE, nullable = true)
+    private byte[] image;
+
+    @ManyToOne
+    private Sneakers sneakers;
 }

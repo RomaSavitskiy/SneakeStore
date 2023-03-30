@@ -16,28 +16,46 @@
 <div th:replace="fragments/header :: header"></div>
 
 <div>
-    <div class="product-header-div">
-        <div class="product-header-title-div">
-
-        </div>
-        <div class="product-header-filters-div">
-            <a href="http://localhost:8083/addProducts">
+    <div class="admin-links-container">
+        <div class="add-product-link-div">
+            <a class="admin-link" href="http://localhost:8083/addProducts">
                 Add product
             </a>
         </div>
+        <div class="add-product-link-div">
+            <a class="admin-link" href="#">
+                Edit product
+            </a>
+        </div>
+        <div class="add-product-link-div">
+            <a class="admin-link" href="#">
+                Delete product
+            </a>
+        </div>
     </div>
-    <<div class="container">
-        <h1>Catalog</h1>
-        <div class="items">
-
-<!--        <div class="pagination">-->
-<!--            <a th:href="@{/catalog?page=${page - 1}}" th:if="${page > 0}">&lt;&lt; Previous</a>-->
-<!--            <a th:href="@{/catalog?page=${page + 1}}" th:if="${not #lists.isEmpty(items)}">Next &gt;&gt;</a>-->
-<!--        </div>-->
-    </div>
-
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="sneaker : ${sneakers}">
+                <td th:text="${sneaker.id}"></td>
+                <td th:text="${sneaker.name}"></td>
+                <td th:text="${sneaker.gender}"></td>
+                <td th:text="${sneaker.price}"></td>
+                <td th:text="${sneaker.discount}"></td>
+                <td th:text="${sneaker.createDate}"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Images;
 import com.example.demo.entity.Sneakers;
+import com.example.demo.service.ImagesService;
 import com.example.demo.service.SneakersService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +25,7 @@ import java.util.List;
 @Slf4j
 public class SneakerController {
     private final SneakersService sneakersService;
+    private final ImagesService imagesService;
 
     @GetMapping("/main")
     public String main() throws IOException {
@@ -36,7 +39,9 @@ public class SneakerController {
     }
 
     @GetMapping("/adminMenu")
-    public String adminPage() {
+    public String adminPage(Model model) {
+        model.addAttribute("sneakers", sneakersService.findAll());
+
         return "adminPage";
     }
 
@@ -49,14 +54,6 @@ public class SneakerController {
 
         return "adminPage";
     }
-
-    @PostMapping("showImage")
-    public void showImage(@PathVariable Sneakers sneakers, HttpServletResponse response) throws IOException {
-        response.setContentType("image/jpeg,image/png,image/gif,image/jpg");
-        response.getOutputStream().write(sneakers.getImage());
-        response.getOutputStream().close();
-    }
-
 
     @PostMapping("/delete")
     public String deleteDiv(Model model) {
@@ -71,15 +68,26 @@ public class SneakerController {
                              @RequestParam("image") MultipartFile image,
                              @RequestParam("gender") String gender) throws IOException {
 
+        Images newImage = new Images();
+        newImage.setImage(image.getBytes());
+
         Sneakers sneakers = sneakersService.setSneakersBody(name, discount, count, price, image, gender);
         sneakersService.save(sneakers);
 
-        return "addProduct";
+        newImage.setSneakers(sneakers);
+        sneakers.getImages().add(newImage);
+
+        imagesService.save(newImage);
+
+        return "redirect:/adminMenu";
     }
 
     @GetMapping(value = "/products")
     public String showSneakers(Model model) {
         model.addAttribute("sneakers", sneakersService.findAll());
+        /*model.addAttribute("sneakerImages", imagesService.findAll());*/
+        List<Sneakers> sneakers = sneakersService.findAll();
+        sneakers.get(0).getImages();
         return "products";
     }
 
