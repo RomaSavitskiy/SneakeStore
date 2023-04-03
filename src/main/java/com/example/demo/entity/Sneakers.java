@@ -18,9 +18,6 @@ public class Sneakers {
     @OrderColumn(name = "name")
     private String name;
 
-    @OrderColumn(name = "count")
-    private Long count;
-
     @OrderColumn(name = "price")
     private Long price;
 
@@ -33,8 +30,8 @@ public class Sneakers {
     @OneToMany(mappedBy = "sneakers", cascade = CascadeType.PERSIST)
     private List<Images> images = new ArrayList<>();
 
-    @OneToMany(mappedBy = "sneakers", cascade = CascadeType.PERSIST)
-    private List<Size> sizes = new ArrayList<>();
+    @OneToOne(mappedBy = "sneakers", cascade = CascadeType.PERSIST)
+    private Sizes sizes;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_date", nullable = false)

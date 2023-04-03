@@ -33,16 +33,12 @@ public class SneakersService {
 
     public Sneakers setSneakersBody(String name,
                                     Long discount,
-                                    Long count,
                                     Long price,
-                                    MultipartFile image,
                                     String gender) throws IOException {
 
         Sneakers sneakers = new Sneakers();
         sneakers.setName(name);
         sneakers.setPrice(price);
-     /*   sneakers.setImage(image.getBytes());*/
-        sneakers.setCount(count);
         sneakers.setDiscount(discount);
         sneakers.setCreateDate(new Date());
         sneakers.setGender(gender);

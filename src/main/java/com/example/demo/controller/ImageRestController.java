@@ -23,10 +23,17 @@ public class ImageRestController {
     @GetMapping(value = "{id}")
     public void showImage(@PathVariable Long id, HttpServletResponse response) throws IOException {
         Images images = imagesService.findFirstForSneaker(id);
-        log.info(Arrays.toString(images.getImage()));
         Sneakers sneakers = sneakersService.findById(id);
         response.setContentType("image/jpeg,image/png,image/gif,image/jpg");
         response.getOutputStream().write(images.getImage());
+        response.getOutputStream().close();
+    }
+
+    @GetMapping(value = "sneaker-img/{id}")
+    public void showAllImageForSneakers(@PathVariable Long id, HttpServletResponse response) throws IOException {
+        response.setContentType("image/jpeg,image/png,image/gif,image/jpg");
+
+        response.getOutputStream().write(imagesService.findById(id).getImage());
         response.getOutputStream().close();
     }
 }

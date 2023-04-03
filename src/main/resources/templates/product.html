@@ -18,7 +18,50 @@
 <div>
     <div class="product-container" >
         <div class="product-img-container">
-
+            <div class="product-img-div" th:each="image : ${productImages}">
+                <img class="product-img" th:src="@{${'/api/images/sneaker-img/' + image.id}}">
+            </div>
+        </div>
+        <div class="product-information-container">
+            <div class="product-information">
+                <p class="product-name" th:text="${product.getName()}"></p>
+                <p class="product-gender" th:text="'Custom ' + ${product.getGender()} + ' shoes' "></p>
+                <br>
+                <p class="product-price" th:text="'USD ' + ${product.getPrice()}">
+            </div>
+            <p>Select size</p>
+            <div class="sizes-links-container">
+                <div class="sizes-links-div">
+                    <a class="product-size-link" href="#" >EU 37</a>
+                </div>
+                <div class="sizes-links-div">
+                    <a class="product-size-link" href="#">EU 38</a>
+                </div>
+                <div class="sizes-links-div">
+                    <a class="product-size-link" href="#">EU 39</a>
+                </div>
+                <div class="sizes-links-div">
+                    <a class="product-size-link" href="#">EU 40</a>
+                </div>
+                <div class="sizes-links-div">
+                    <a class="product-size-link" href="#">EU 41</a>
+                </div>
+                <div class="sizes-links-div">
+                    <a class="product-size-link" href="#">EU 42</a>
+                </div>
+                <div class="sizes-links-div">
+                    <a class="product-size-link" href="#">EU 43</a>
+                </div>
+                <div class="sizes-links-div">
+                    <a class="product-size-link" href="#">EU 44</a>
+                </div>
+                <div class="sizes-links-div">
+                    <a class="product-size-link" href="#">EU 45</a>
+                </div>
+            </div>
+            <div class="product-cart-div">
+                <a class="product-cart-link" href="#">Put in the bag</a>
+            </div>
         </div>
     </div>
 </div>

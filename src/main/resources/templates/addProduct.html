@@ -11,28 +11,42 @@
     <!-- Здесь вы можете разместить содержимое вашей страницы -->
 
     <div>
-        <form action="http://localhost:8083/saveProduct" method="post" enctype="multipart/form-data">
+        <form action="http://localhost:8083/saveProduct" method="post" enctype="multipart/form-data" >
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
 
             <label for="discount">Discount:</label>
-            <input type="text" id="discount" name="discount" required><br><br>
-
-            <label for="count">Count:</label>
-            <input type="text" id="count" name="count" required><br><br>
+            <input type="text" id="discount" name="discount" value="10" required><br><br>
 
             <label for="price">Price:</label>
-            <input type="text" id="price" name="price" required><br><br>
+            <input type="text" id="price" name="price" value="200" required><br><br>
 
-            <label for="image">Price:</label>
-            <input type="file" id="image" name="image" required><br><br>
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" required multiple><br><br>
 
             <input type="radio" name="gender" value="men" id="men">
             <label for="men">Мужской</label><br>
             <input type="radio" name="gender" value="women" id="women">
             <label for="women">Женский</label><br>
-            <input type="radio" name="gender" value="kid" id="kid">
-            <label for="kid">Детский</label><br>
+
+            <label for="price">37:</label>
+            <input type="text" id="size37" name="size37" value="0" required><br><br>
+            <label for="price">38:</label>
+            <input type="text" id="size38" name="size38" value="0" required><br><br>
+            <label for="price">39:</label>
+            <input type="text" id="size39" name="size39" value="0" required><br><br>
+            <label for="price">40:</label>
+            <input type="text" id="size40" name="size40" value="0" required><br><br>
+            <label for="price">41:</label>
+            <input type="text" id="size41" name="size41" value="0" required><br><br>
+            <label for="price">42:</label>
+            <input type="text" id="size42" name="size42" value="0" required><br><br>
+            <label for="price">43:</label>
+            <input type="text" id="size43" name="size43" value="0" required><br><br>
+            <label for="price">44:</label>
+            <input type="text" id="size44" name="size44" value="0" required><br><br>
+            <label for="price">45:</label>
+            <input type="text" id="size45" name="size45" value="0" required><br><br>
 
             <input type="submit" value="Submit">
         </form>

@@ -42,7 +42,7 @@ div {
 }
 
 .products-container {
-    height: 500px;
+    height: 600px;
     width: 400px;
     /* можно задать другую ширину для каждого элемента */
     box-sizing: border-box;
@@ -55,13 +55,14 @@ div {
 }
 
 .img-container {
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
+    /*border: 1px black solid;*/
 }
 
 .product-img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 500px;
+    max-height: 500px;
 }
 
 .product-description-container {

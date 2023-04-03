@@ -17,7 +17,7 @@ public class ImagesService {
     }
 
     public Images findFirstForSneaker(Long id) {
-        return imagesRepository.findFirstForSneaker(id);
+        return imagesRepository.findAllImagesForSneaker(id).get(0);
     }
 
     public void save(Images images) {
@@ -30,5 +30,9 @@ public class ImagesService {
 
     public Images findById(Long id) {
         return imagesRepository.findById(id).orElseThrow();
+    }
+
+    public List<Images> findAllImagesForSneaker(Long id) {
+        return imagesRepository.findAllImagesForSneaker(id);
     }
 }

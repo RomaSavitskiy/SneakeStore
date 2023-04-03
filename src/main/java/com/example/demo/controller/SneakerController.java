@@ -1,13 +1,13 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Images;
+import com.example.demo.entity.Sizes;
 import com.example.demo.entity.Sneakers;
+import com.example.demo.repository.SizesRepository;
 import com.example.demo.service.ImagesService;
 import com.example.demo.service.SneakersService;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +26,7 @@ import java.util.List;
 public class SneakerController {
     private final SneakersService sneakersService;
     private final ImagesService imagesService;
+    private final SizesRepository sizesRepository;
 
     @GetMapping("/main")
     public String main() throws IOException {
@@ -63,21 +64,45 @@ public class SneakerController {
     @PostMapping("/saveProduct")
     public String addProduct(@RequestParam("name") String name,
                              @RequestParam("discount") Long discount,
-                             @RequestParam("count") Long count,
                              @RequestParam("price") Long price,
-                             @RequestParam("image") MultipartFile image,
-                             @RequestParam("gender") String gender) throws IOException {
+                             @RequestParam("image") List<MultipartFile> images,
+                             @RequestParam("gender") String gender,
+                             @RequestParam("size37") String size37,
+                             @RequestParam("size38") String size38,
+                             @RequestParam("size39") String size39,
+                             @RequestParam("size40") String size40,
+                             @RequestParam("size41") String size41,
+                             @RequestParam("size42") String size42,
+                             @RequestParam("size43") String size43,
+                             @RequestParam("size44") String size44,
+                             @RequestParam("size45") String size45) throws IOException {
 
-        Images newImage = new Images();
-        newImage.setImage(image.getBytes());
-
-        Sneakers sneakers = sneakersService.setSneakersBody(name, discount, count, price, image, gender);
+        Sneakers sneakers = sneakersService.setSneakersBody(name, discount, price, gender);
         sneakersService.save(sneakers);
 
-        newImage.setSneakers(sneakers);
-        sneakers.getImages().add(newImage);
+        Sizes sizes = new Sizes();
+        sizes.setSize37(Long.valueOf(size37));
+        sizes.setSize38(Long.valueOf(size38));
+        sizes.setSize39(Long.valueOf(size39));
+        sizes.setSize40(Long.valueOf(size40));
+        sizes.setSize41(Long.valueOf(size41));
+        sizes.setSize42(Long.valueOf(size42));
+        sizes.setSize43(Long.valueOf(size43));
+        sizes.setSize44(Long.valueOf(size44));
+        sizes.setSize45(Long.valueOf(size45));
+        sizes.setSneakers(sneakers);
+        sneakers.setSizes(sizes);
+        sizesRepository.save(sizes);
 
-        imagesService.save(newImage);
+
+        for(int i = 0; i < images.size(); i++) {
+            Images newImage = new Images();
+
+            newImage.setImage(images.get(i).getBytes());
+            newImage.setSneakers(sneakers);
+            sneakers.getImages().add(newImage);
+            imagesService.save(newImage);
+        }
 
         return "redirect:/adminMenu";
     }
@@ -87,7 +112,7 @@ public class SneakerController {
         model.addAttribute("sneakers", sneakersService.findAll());
         /*model.addAttribute("sneakerImages", imagesService.findAll());*/
         List<Sneakers> sneakers = sneakersService.findAll();
-        sneakers.get(0).getImages();
+        /*sneakers.get(0).getImages();*/
         return "products";
     }
 
@@ -103,12 +128,6 @@ public class SneakerController {
         return "products";
     }
 
-    @GetMapping("/kid_sneakers")
-    public String kidSneakers(Model model) {
-        model.addAttribute("sneakers",sneakersService.findAllByGender("kid"));
-        return "products";
-    }
-
     @GetMapping("/discount_sneakers")
     public String discountSneakers(Model model) {
         model.addAttribute("sneakers",sneakersService.findAllWithDiscount());
@@ -117,7 +136,9 @@ public class SneakerController {
 
     @GetMapping("/product/{id}")
     public String product(@PathVariable Long id, Model model) {
-        model.addAttribute("product", sneakersService.findById(id));
+        Sneakers sneaker = sneakersService.findById(id);
+        model.addAttribute("product", sneaker);
+        model.addAttribute("productImages", imagesService.findAllImagesForSneaker(id));
 
         return "product";
     }

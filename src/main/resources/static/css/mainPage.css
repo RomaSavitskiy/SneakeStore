@@ -8,7 +8,7 @@
 /* Global styles */
 
 div {
-   /* border: black solid 1px;*/
+    /*border: black solid 1px;*/
 }
 
 body {
@@ -47,8 +47,8 @@ body {
 }
 
 .navigate-div {
-    margin-left: 15rem;
-    width: 50rem;
+    margin-left: 17rem;
+    width: 40rem;
     display: inline;
 }
 
@@ -58,7 +58,7 @@ body {
 
 .navigate-li {
     display: inline;
-    margin: 1.5rem 3rem;
+    margin: 1.5rem auto;
 }
 
 .navigate-li:hover {

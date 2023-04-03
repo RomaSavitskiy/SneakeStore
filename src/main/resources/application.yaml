@@ -9,7 +9,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    # выводит в консоль все действия, которые происходят с БД
+      # выводит в консоль все действия, которые происходят с БД
     show-sql: true
     properties:
       hibernate:

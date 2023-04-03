@@ -23,7 +23,6 @@
             </div>
             <div class="products-div">
                 <div class="products-container" th:each="sneaker : ${sneakers}">
-                     <img th:href="@{${'/api/images/' + sneaker.id}}" alt="hello">
                        <div class="img-container">
                            <img  class="product-img" th:src="@{${'/api/images/' + sneaker.id}}", th:alt="${'/api/images/' + sneaker.id}">
                        </div>

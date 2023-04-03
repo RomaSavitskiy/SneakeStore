@@ -1,15 +1,131 @@
 div {
-    border: black 1px solid;
+   /* border: black 1px solid;*/
 }
 
 .product-container {
     width: 1700px;
-    height: 700px;
+    height: auto;
 
     margin: auto;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
 }
 
 .product-img-container {
-    width: 900px;
-    height: 700px;
+    width: 1100px;
+    height: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+
+.product-img-div {
+    width: 500px;
+    height: 500px;
+}
+
+.product-information-container {
+    height: auto;
+    width: 500px;
+
+   /* border: solid black 1px;*/
+}
+
+.sizes-links-container {
+    width: 370px;
+    height: 400px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin-left: 0;
+
+    /*border: solid black 1px;*/
+}
+
+.product-information {
+    width: 370px;
+    height: 200px;
+
+    /*border: solid black 1px;*/
+}
+
+.product-name {
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.007em;
+    font-size: 28px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.product-gender {
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.007em;
+    font-size: 18px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.product-price {
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.007em;
+    font-size: 24px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.sizes-links-div {
+    width: 180px;
+    height: 60px;
+   /* margin-top: 20px;*/
+
+    text-align: center;
+    line-height: 60px;
+
+    border-radius: 4px;
+   /* border: black solid 1px;*/
+}
+
+.product-size-link {
+    display: block;
+    text-decoration: none;
+
+    background: rgb(255, 255, 255);
+    color: rgb(17, 17, 17);
+    box-shadow: rgb(229, 229, 229) 0px 0px 0px 1px;
+}
+
+.product-size-link:hover {
+   border: black solid 1px;
+}
+
+.product-cart-div {
+    width: 75%;
+    height: 80px;
+
+    margin-top: 30px;
+    margin-left: 0;
+    text-align: center;
+    border-radius: 10px;
+
+    border: black solid 1px;
+    background-color: rgb(17, 17, 17);
+}
+
+.product-cart-link {
+    display: block;
+    line-height: 80px;
+
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+}
+
+.product-cart-div:hover {
+    opacity: 80%;
 }
