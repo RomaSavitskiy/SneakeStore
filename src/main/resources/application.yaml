@@ -20,11 +20,7 @@ spring:
       mode: always
       continue-on-error: true
 
-
-
-
 server:
-  address: 26.152.97.167
   port: 8083
 
 

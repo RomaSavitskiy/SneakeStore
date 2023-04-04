@@ -1,6 +1,6 @@
-package com.example.demo.configuration;
+/*package com.example.demo.configuration;
 
-/*import org.springframework.context.annotation.Bean;
+*//*import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -60,9 +60,9 @@ public class SecurityConfig  {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/main").setViewName("index");
     }
-}*/
+}*//*
 
-/*import org.springframework.context.annotation.Bean;
+*//*import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -104,7 +104,7 @@ public class SecurityConfig {
 
         return new InMemoryUserDetailsManager(user);
     }
-}*/
+}*//*
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -122,24 +122,24 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig implements WebMvcConfigurer {
-    /*@Value("${roma}")
-    private String username;*/
+    *//*@Value("${roma}")
+    private String username;*//*
 
-    /*@Bean
+    *//*@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        *//*http
+        *//**//*http
                 .authorizeRequests((auth) -> auth
                         .requestMatchers("/main","/resources/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated())
-                .formLogin();*//*
-               *//* .loginPage("/login")
-                .permitAll();*//*
-                *//*.and()
+                .formLogin();*//**//*
+               *//**//* .loginPage("/login")
+                .permitAll();*//**//*
+                *//**//*.and()
                 .logout()
                 .logoutSuccessUrl("/main")
-                .permitAll();*//*
+                .permitAll();*//**//*
 
         http
                 .authorizeRequests()
@@ -154,9 +154,9 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .permitAll();
 
         return http.build();
-    }*/
+    }*//*
 
-    /*
+    *//*
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         UserDetails user1 = User.withDefaultPasswordEncoder()
@@ -172,20 +172,20 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .build();
 
         return new InMemoryUserDetailsManager(user1, user2);
-    }*/
+    }*//*
 
-    /*@Override
+    *//*@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
                 .addResourceHandler("/static/**")
                 .addResourceLocations("/static/");
-    }*/
+    }*//*
 
-    /*@Override
+    *//*@Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**")
                 .addResourceLocations("/resources/");
-    }*/
-}
+    }*//*
+}*/
 
 
