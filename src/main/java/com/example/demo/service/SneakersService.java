@@ -3,14 +3,12 @@ package com.example.demo.service;
 import com.example.demo.entity.Sneakers;
 import com.example.demo.repository.SneakersRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,8 +18,8 @@ public class SneakersService {
         return sneakersRepository.findAll();
     }
 
-    public Page<Sneakers> getPage(Pageable pageable) {
-        return sneakersRepository.getPage(pageable);
+    public void deleteById(Long id) {
+        sneakersRepository.deleteById(id);
     }
 
     public Sneakers findById(Long id) {
@@ -52,5 +50,9 @@ public class SneakersService {
 
     public List<Sneakers> findAllWithDiscount() {
         return sneakersRepository.findAllWithDiscount();
+    }
+
+    public List<Long> findAllId() {
+        return sneakersRepository.findAllId();
     }
 }

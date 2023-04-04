@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Shop</title>
     <link rel="stylesheet" href="/css/mainPage.css" type="text/css">
     <link rel="stylesheet" href="../static/css/mainPage.css" type="text/css">
 
@@ -31,11 +31,13 @@
                             <p class="product-card-gender" th:text="${sneaker.gender}"></p>
                             <div class="price-discount-div">
                                 <p class="product-card-price" th:if="${sneaker.discount == 0}" th:text="${ 'USD ' + sneaker.price}"></p>
-                                <p class="product-card-price-discount-new" th:if="${sneaker.discount > 0}" th:text="${ 'USD ' + sneaker.price * (100 - sneaker.discount) / 100}"></p>
-                                <p class="product-card-price-discount-old" th:if="${sneaker.discount > 0}" th:text="${ 'USD ' + sneaker.price}"></p>
+                                <div class="products-price-discount-div">
+                                    <p class="product-card-price-discount-new" th:if="${sneaker.discount > 0}" th:text="'USD ' + ${sneaker.price * (100 - sneaker.discount) / 100}"></p>
+                                    <p class="product-card-price-discount-old" th:if="${sneaker.discount > 0}" th:text="${ 'USD ' + sneaker.price}"></p>
+                                </div>
                             </div>
                         </div>
-                        <a class="product-link" th:href="@{http://localhost:8083/product/{id}(id=${sneaker.id})}"> </a>
+                        <a class="product-link" th:href="@{http://26.152.97.167:8083/product/{id}(id=${sneaker.id})}"> </a>
                 </div>
             </div>
         </div>

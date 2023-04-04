@@ -18,18 +18,27 @@
 <div>
     <div class="admin-links-container">
         <div class="add-product-link-div">
-            <a class="admin-link" href="http://localhost:8083/addProducts">
+            <a class="admin-link" href="http://26.152.97.167:8083/addProducts">
                 Add product
             </a>
         </div>
         <div class="add-product-link-div">
             <a class="admin-link" href="#">
-                Edit product
+                Delete product
             </a>
+            <div>
+                <form action="http://26.152.97.167:8083/deleteProduct" method="post" enctype="multipart/form-data" >
+                    <label for="deleteForm">Input product Id</label>
+                    <input class="input-form" type="text" name="sneakerId" id="deleteForm" required>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+                <p th:text="${deleteResult}"></p>
+            </div>
         </div>
         <div class="add-product-link-div">
             <a class="admin-link" href="#">
-                Delete product
+                Edit product
             </a>
         </div>
     </div>

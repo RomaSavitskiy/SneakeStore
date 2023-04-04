@@ -1,0 +1,155 @@
+div {
+    /*border: black solid 1px;*/
+}
+
+.bag-container {
+    width: 1400px;
+    height: 700px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.bag-sneakers-container {
+    height: auto;
+    width: 700px;
+}
+
+.bag-menu-container {
+    height: 700px;
+    width: 700px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.bag-sneaker-container {
+    height: 250px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.bag-img-container {
+    height: 220px;
+    width: 220px;
+
+    margin: 10px 0;
+}
+
+.bag-img {
+    height: 220px;
+    width: 220px;
+}
+
+.bag-sneakers-description {
+    height: 220px;
+    width: 400px;
+
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.bag-text-fold {
+    font-size: 26px;
+}
+
+.bag-text-normal {
+    font-size: 20px;
+    color: #808080;
+}
+
+.products-price-discount-div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.product-card-price-discount-new {
+    align-items: start;
+
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+
+.product-card-price-discount-old {
+    margin-left: 0;
+
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+    opacity: 70%;
+    text-decoration: line-through;
+}
+
+.bag-line {
+    height: 1px;
+    width: 600px;
+    background-color: black;
+    margin-bottom: 10px;
+}
+
+.bag-container-line-separate {
+    display: flex;
+    flex-direction: column;
+}
+
+.bag-menu-item {
+    height: 30px;
+    width: 500px;
+
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    /*border: black solid 1px;*/
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.bag-menu-item-left {
+    text-align: start;
+}
+
+.bag-menu-item-right {
+    text-align: end;
+}
+
+.grey-line {
+    width: 500px;
+    height: 1px;
+
+    background-color: #979797;
+
+    margin: 20px 0;
+}
+
+.buy-link-div {
+    height: 5rem;
+
+    margin: 50px 100px;
+    display: flex;
+    flex-direction: row;
+
+    grid-gap: 8rem;
+}
+
+.buy-link {
+    height: 3rem;
+    width: 300px;
+
+    text-align: center;
+    display: block;
+
+    line-height: 3rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+
+    background-color: black;
+    color: white;
+    border-radius: 2rem;
+}

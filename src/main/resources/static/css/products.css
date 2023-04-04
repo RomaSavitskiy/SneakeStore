@@ -29,7 +29,7 @@ div {
 /* Main */
 .scroller {
     height: 30rem;
-    width: 20rem;
+    width: 10rem;
 }
 
 .products-div {
@@ -56,13 +56,13 @@ div {
 
 .img-container {
     height: 500px;
-    width: 500px;
+    width: 470px;
     /*border: 1px black solid;*/
 }
 
 .product-img {
-    max-width: 500px;
-    max-height: 500px;
+    width: 470px;
+    height: 500px;
 }
 
 .product-description-container {
@@ -99,6 +99,12 @@ div {
     color: black;
 }
 
+.products-price-discount-div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 .price-discount-div {
     width: 250px;
     display: flex;
@@ -114,7 +120,7 @@ div {
 }
 
 .product-card-price-discount-old {
-    margin-left: 15px;
+    margin-left: 0;
 
     font-size: 25px;
     font-weight: 500;

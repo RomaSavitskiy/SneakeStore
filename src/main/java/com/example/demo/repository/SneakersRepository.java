@@ -19,4 +19,7 @@ public interface SneakersRepository extends JpaRepository<Sneakers, Long> {
 
     @Query("SELECT u FROM Sneakers u WHERE u.discount > 0")
     List<Sneakers> findAllWithDiscount();
+
+    @Query("SELECT id FROM Sneakers")
+    List<Long> findAllId();
 }

@@ -23,7 +23,6 @@ public class ImageRestController {
     @GetMapping(value = "{id}")
     public void showImage(@PathVariable Long id, HttpServletResponse response) throws IOException {
         Images images = imagesService.findFirstForSneaker(id);
-        Sneakers sneakers = sneakersService.findById(id);
         response.setContentType("image/jpeg,image/png,image/gif,image/jpg");
         response.getOutputStream().write(images.getImage());
         response.getOutputStream().close();

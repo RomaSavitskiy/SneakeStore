@@ -30,7 +30,7 @@
         </div>
         <div class="link-container">
             <div class="link-div">
-                <a class="main-link" href="http://localhost:8083/products">Shop</a>
+                <a class="main-link" href="http://26.152.97.167:8083/products">Shop</a>
             </div>
         </div>
     </div>
@@ -38,6 +38,9 @@
         <img class="main-img" src="/img/basketball-game.jpg" alt="Basketball game">
     </div>
     <button onclick="removeDiv()">Удалить элемент div</button>
+    <p th:text="${session.myAttribute}"></p>
+    <p th:text="${myAttribute}"></p>
+<!--    <p th:text="${session.get(myAttribute)}"></p>&ndash;&gt;-->
 </main>
 
 <div th:replace="fragments/footer :: footer"></div>

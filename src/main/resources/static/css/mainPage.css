@@ -78,7 +78,7 @@ body {
     width: 8rem;
     height: 3rem;
 
-    margin-left: 91rem;
+    margin-left: 86rem;
     margin-top: 1rem;
 
     text-align: center;
@@ -89,7 +89,7 @@ body {
     width: 5rem;
     height: 3rem;
 
-    margin-left: 102rem;
+    margin-left: 97rem;
     margin-top: 1rem;
 
     text-align: center;
@@ -122,7 +122,7 @@ body {
     width: 5rem;
     height: 3rem;
 
-    margin-left: 110rem;
+    margin-left: 105rem;
     margin-top: 1rem;
 
     text-align: center;
@@ -338,4 +338,34 @@ footer p {
     height: 2.5rem;
 
     /*border: white 1px solid;*/
+}
+
+.bag-link-div {
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    border-radius: 25px;
+
+    text-align: center;
+
+    margin-left: 113rem;
+    margin-top: 0.8rem;
+
+    border: black 1px solid;
+}
+
+.bag-link-div:hover {
+    background-color: #DCDCDC;
+}
+
+.bag-link-img {
+    height: 30px;
+    width: 30px;
+
+    margin-top: 7px;
+}
+
+.bag-link {
+    display: block;
 }

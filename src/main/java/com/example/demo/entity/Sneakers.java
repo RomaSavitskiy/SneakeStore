@@ -27,10 +27,10 @@ public class Sneakers {
     @OrderColumn(name = "gender")
     private String gender;
 
-    @OneToMany(mappedBy = "sneakers", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "sneakers",  cascade = CascadeType.ALL)
     private List<Images> images = new ArrayList<>();
 
-    @OneToOne(mappedBy = "sneakers", cascade = CascadeType.PERSIST)
+    @OneToOne(mappedBy = "sneakers",  cascade = CascadeType.ALL)
     private Sizes sizes;
 
     @Temporal(TemporalType.TIMESTAMP)

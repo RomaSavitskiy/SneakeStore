@@ -10,10 +10,11 @@ spring:
     hibernate:
       ddl-auto: update
       # выводит в консоль все действия, которые происходят с БД
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
 server:
+  address: 26.152.97.167
   port: 8083

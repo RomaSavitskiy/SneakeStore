@@ -20,7 +20,7 @@ div {
 
     display: flex;
     flex-wrap: wrap;
-    gap: 100px;
+    gap: 50px;
 }
 
 .product-img-div {
@@ -71,6 +71,12 @@ div {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.product-price-div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 .product-price {
     font-weight: 500;
     line-height: 1.2;
@@ -78,6 +84,94 @@ div {
     font-size: 24px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+/*.radio-form {
+    width: 180px;
+    height: 60px;
+    !* margin-top: 20px;*!
+
+    text-align: center;
+    line-height: 60px;
+
+    border-radius: 4px;
+
+    background: rgb(255, 255, 255);
+    color: rgb(17, 17, 17);
+    box-shadow: rgb(229, 229, 229) 0px 0px 0px 1px;
+}*/
+
+/*.radio-div : focus {
+    display: block;
+    background-color: black;
+}*/
+
+.buttons {
+    width: 380px;
+    height: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+
+    border-radius: 3px;
+    position: relative;
+}
+
+.buttons input {
+    width: 180px;
+    height: 60px;
+
+    line-height: 60px;
+
+    appearance: none;
+    cursor: pointer;
+    border-radius: 2px;
+    background: white;
+    color: black;
+    box-shadow: rgb(229, 229, 229) 0px 0px 0px 1px;
+    font-size: 20px;
+    font-family: sans-serif;
+    transition: all 0.1s;
+}
+
+.buttons label {
+    text-align: center;
+}
+
+.buttons input:checked {
+   border: black solid 1px;
+}
+
+.buttons input:hover {
+    border: black solid 1px;
+
+}
+
+.input-size {
+    width: 380px;
+    height: 80px;
+
+    margin-top: 40px;
+
+    border-radius: 10px;
+    border: black solid 1px;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    font-size: 22px;
+}
+
+.input-size:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+
+.buttons input::before {
+    content: attr(label);
+    text-align: center;
+    margin-left: 65px;
+}
+
 
 .sizes-links-div {
     width: 180px;
@@ -91,41 +185,5 @@ div {
    /* border: black solid 1px;*/
 }
 
-.product-size-link {
-    display: block;
-    text-decoration: none;
 
-    background: rgb(255, 255, 255);
-    color: rgb(17, 17, 17);
-    box-shadow: rgb(229, 229, 229) 0px 0px 0px 1px;
-}
 
-.product-size-link:hover {
-   border: black solid 1px;
-}
-
-.product-cart-div {
-    width: 75%;
-    height: 80px;
-
-    margin-top: 30px;
-    margin-left: 0;
-    text-align: center;
-    border-radius: 10px;
-
-    border: black solid 1px;
-    background-color: rgb(17, 17, 17);
-}
-
-.product-cart-link {
-    display: block;
-    line-height: 80px;
-
-    text-decoration: none;
-    color: white;
-    font-size: 22px;
-}
-
-.product-cart-div:hover {
-    opacity: 80%;
-}

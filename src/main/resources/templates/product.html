@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${product.getName()}"></title>
     <link rel="stylesheet" href="/css/mainPage.css" type="text/css">
     <link rel="stylesheet" href="../static/css/mainPage.css" type="text/css">
 
@@ -27,41 +27,46 @@
                 <p class="product-name" th:text="${product.getName()}"></p>
                 <p class="product-gender" th:text="'Custom ' + ${product.getGender()} + ' shoes' "></p>
                 <br>
-                <p class="product-price" th:text="'USD ' + ${product.getPrice()}">
+                <div class="product-price-div">
+                    <p class="product-card-price-discount-new" th:if="${product.discount > 0}" th:text="'USD ' + ${product.price * (100 - product.discount) / 100}"></p>
+                    <p class="product-card-price-discount-old" th:if="${product.discount > 0}" th:text="${ 'USD ' + product.price}"></p>
+                </div>
             </div>
             <p>Select size</p>
-            <div class="sizes-links-container">
-                <div class="sizes-links-div">
-                    <a class="product-size-link" href="#" >EU 37</a>
+            <form action="http://26.152.97.167:8083/addProductToBag" method="post" enctype="multipart/form-data" >
+                <div class="buttons">
+                    <label>
+                        <input label="EU 37" type="radio" name="size" value="37" required>
+                    </label>
+                    <label>
+                        <input label="EU 38" type="radio" name="size" value="38" required>
+                    </label>
+                    <label>
+                        <input label="EU 39" type="radio" name="size" value="39" required>
+                    </label>
+                    <label>
+                        <input label="EU 40" type="radio" name="size" value="40" required>
+                    </label>
+                    <label>
+                        <input label="EU 41" type="radio" name="size" value="41" required>
+                    </label>
+                    <label>
+                        <input label="EU 42" type="radio" name="size" value="42" required>
+                    </label>
+                    <label>
+                        <input label="EU 43" type="radio" name="size" value="43" required>
+                    </label>
+                    <label>
+                        <input label="EU 44" type="radio" name="size" value="44" required>
+                    </label>
+                    <label>
+                        <input label="EU 45" type="radio" name="size" value="45" required>
+                    </label>
                 </div>
-                <div class="sizes-links-div">
-                    <a class="product-size-link" href="#">EU 38</a>
-                </div>
-                <div class="sizes-links-div">
-                    <a class="product-size-link" href="#">EU 39</a>
-                </div>
-                <div class="sizes-links-div">
-                    <a class="product-size-link" href="#">EU 40</a>
-                </div>
-                <div class="sizes-links-div">
-                    <a class="product-size-link" href="#">EU 41</a>
-                </div>
-                <div class="sizes-links-div">
-                    <a class="product-size-link" href="#">EU 42</a>
-                </div>
-                <div class="sizes-links-div">
-                    <a class="product-size-link" href="#">EU 43</a>
-                </div>
-                <div class="sizes-links-div">
-                    <a class="product-size-link" href="#">EU 44</a>
-                </div>
-                <div class="sizes-links-div">
-                    <a class="product-size-link" href="#">EU 45</a>
-                </div>
-            </div>
-            <div class="product-cart-div">
-                <a class="product-cart-link" href="#">Put in the bag</a>
-            </div>
+
+                <input th:value="${product.getId()}" name="productId" type="hidden">
+                <input class="input-size" type="submit" value="Put in the bag">
+            </form>
         </div>
     </div>
 </div>

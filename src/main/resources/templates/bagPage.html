@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bag</title>
+    <link rel="stylesheet" href="/css/mainPage.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/mainPage.css" type="text/css">
+
+    <link rel="stylesheet" href="/css/bagPage.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/bagPage.css" type="text/css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div>
+    <div class="bag-container">
+        <div class="bag-sneakers-container">
+            <p class="bag-text-fold">Bag</p>
+            <div class="bag-container-line-separate" th:each="sneaker : ${session.bagSneakersList}">
+                <div class="bag-sneaker-container">
+                    <div class="bag-img-container">
+                        <img class="bag-img" th:src="@{${'/api/images/' + sneaker.id}}">
+                    </div>
+                    <div class="bag-sneakers-description">
+                        <p class="bag-text-fold" th:text="${sneaker.name}"></p>
+                        <p class="bag-text-normal" th:text="${sneaker.gender}"></p>
+                        <br>
+                        <p class="bag-text-normal" th:text="'Size '+ ${session.sneakerSize}"></p>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="products-price-discount-div">
+                            <p class="product-card-price-discount-new" th:if="${sneaker.discount > 0}"
+                               th:text="${ 'USD ' + sneaker.price * (100 - sneaker.discount) / 100}">
+                            </p>
+                            <p class="product-card-price-discount-old" th:if="${sneaker.discount > 0}"
+                               th:text="${ 'USD ' + sneaker.price}">
+                            </p>
+                        </div>
+                    </div>
+                 </div>
+                <div class="bag-line">
+                </div>
+            </div>
+        </div>
+        <div class="bag-menu-container">
+            <p class="bag-text-fold">Summery</p>
+            <br>
+            <div class="bag-menu-item">
+                <p class="bag-menu-item-left">Subtotal Price</p>
+                <p class="bag-menu-item-right" th:text="${session.totalPrice}"></p>
+            </div>
+            <div class="bag-menu-item">
+                <p class="bag-menu-item-left">Delivery Price</p>
+                <p class="bag-menu-item-right">Free</p>
+            </div>
+            <div class="grey-line"></div>
+            <div class="bag-menu-item">
+                <p class="bag-menu-item-left">Total Price</p>
+                <p class="bag-menu-item-right" th:text="${session.totalPrice}"></p>
+            </div>
+            <div class="grey-line"></div>
+            <div class="buy-link-div">
+                <a class="buy-link" href="http://26.152.97.167:8083/order">Making an order</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
