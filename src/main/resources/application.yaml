@@ -8,13 +8,23 @@ spring:
   # при запуске приложения, создавал новую БД (чтобы обновлял, пишем update)
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
       # выводит в консоль все действия, которые происходят с БД
     show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+
+
+
+
 server:
   address: 26.152.97.167
   port: 8083
+
+
