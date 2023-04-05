@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/css/mainPage.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/mainPage.css" type="text/css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<body>
+    <form action="http://localhost:8083/saveUser" method="post" enctype="multipart/form-data">
+        <label for="login">Login</label>
+        <input type="text" id="login" name="login" value="login">
+        <label for="login">Password</label>
+        <input type="text" id="password" name="password" value="password">
+
+        <input type="submit" value="Sign Up">
+    </form>
+</body>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

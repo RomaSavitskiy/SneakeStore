@@ -1,8 +1,12 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Role;
 import com.example.demo.entity.Sneakers;
+import com.example.demo.entity.User;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.service.ImagesService;
 import com.example.demo.service.SneakersService;
+import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -11,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping()
 @RequiredArgsConstructor
@@ -20,6 +23,7 @@ import java.util.Optional;
 public class SneakerController {
     private final SneakersService sneakersService;
     private final ImagesService imagesService;
+    private final UserService userService;
 
     @GetMapping("/main")
     public String main() throws IOException {
@@ -69,5 +73,27 @@ public class SneakerController {
         model.addAttribute("productImages", imagesService.findAllImagesForSneaker(id));
 
         return "product";
+    }
+
+    @GetMapping("/registration")
+    public String registration() {
+        return "registration";
+    }
+
+    @PostMapping("/saveUser")
+    public String addUser(@RequestParam(name = "login") String login,
+                          @RequestParam(name = "login") String password) {
+
+        Role role = new Role();
+        role.setName("USER");
+
+        User user = new User();
+        user.setLogin(login);
+        user.setPassword(password);
+        user.setRole(role);
+
+        userService.save(user);
+
+        return "index";
     }
 }

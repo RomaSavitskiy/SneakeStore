@@ -16,6 +16,14 @@
     <div class="bag-container">
         <div class="bag-sneakers-container">
             <p class="bag-text-fold">Bag</p>
+            <div class="bag-null" th:if="${session.bagSneakersList.size() == 0}">
+                <div class="bag-null-text-div">
+                    <p class="bag-null-text">Bag is empty now</p>
+                </div>
+                <div class="bag-link-shop-div">
+                    <a class="bag-link-shop" href="http://localhost:8083/products">Go to shop</a>
+                </div>
+            </div>
             <div class="bag-container-line-separate" th:each="sneaker : ${session.bagSneakersList}">
                 <div class="bag-sneaker-container">
                     <div class="bag-img-container">

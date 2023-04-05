@@ -31,7 +31,7 @@ public class BagController {
         return "bagPage";
     }
 
-    @PostMapping("/addProductToBag")
+    @GetMapping("/addProductToBag")
     public String addProductToBag(@RequestParam("size") Long size,
                                   HttpSession session,
                                   @RequestParam("productId") String id)  {

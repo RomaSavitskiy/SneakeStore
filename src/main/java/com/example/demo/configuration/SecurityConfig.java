@@ -187,5 +187,51 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .addResourceLocations("/resources/");
     }*//*
 }*/
+/*package com.example.demo.configuration;
+
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig  {
+   *//* @Value("${roma}")
+    private String username;*//*
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.
+                authorizeRequests((auth) -> auth
+                        .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                        .requestMatchers("/main/**", "/css/**", "/script/**", "/img/**", "/products/**",
+                                "/men_sneakers", "/women_sneakers", "/discount_sneakers", "/product/**",
+                                "/bag/**", "/addProductToBag/**", "/api/images/**", "/registration", "/saveUser")
+                        .permitAll()
+                        .anyRequest()
+                        .authenticated())
+                .formLogin()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/main")
+                    .permitAll()
+                    .and()
+                .logout()
+                .logoutSuccessUrl("/login")
+                .permitAll();
+
+        return http.build();
+    }
+}*/
 
 
