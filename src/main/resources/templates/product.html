@@ -18,8 +18,8 @@
 <div>
     <div class="product-container" >
         <div class="product-img-container">
-            <div class="product-img-div" th:each="image : ${productImages}">
-                <img class="product-img" th:src="@{${'/api/images/sneaker-img/' + image.id}}">
+            <div class="product-img-div" th:each="images : ${productImages}">
+                <img class="product-img" th:src="@{${'/api/images/sneaker-img/' + images.id}}">
             </div>
         </div>
         <div class="product-information-container">
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <p>Select size</p>
-            <form action="http://localhost:8083/addProductToBag" method="get" enctype="multipart/form-data" >
+            <form action="http://localhost:8083/bag/product" method="get" enctype="multipart/form-data" >
                 <div class="buttons">
                     <label th:if="${product.getSizes().getSize37() == 0}">
                         <input label="EU 37" type="radio" name="size" value="37" th:disabled="${product.getSizes().getSize37() == 0}" th:if="${product.getSizes().getSize37() == 0}" th:class="${'bar-disable'}" required>

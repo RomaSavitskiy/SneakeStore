@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Images;
-import com.example.demo.entity.Sizes;
-import com.example.demo.entity.Sneakers;
+import com.example.demo.entity.*;
 import com.example.demo.service.ImagesService;
 import com.example.demo.service.SizesService;
 import com.example.demo.service.SneakersService;
@@ -10,31 +8,56 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
-@Controller
+@RequestMapping("/sneakers")
 @RequiredArgsConstructor
+@Controller
 @Slf4j
-public class AdminController {
+public class SneakersController {
     private final SneakersService sneakersService;
     private final ImagesService imagesService;
     private final SizesService sizesService;
 
-    @GetMapping("/adminMenu")
-    public String adminPage(Model model) {
+    @GetMapping
+    public String showSneakers(Model model) {
         model.addAttribute("sneakers", sneakersService.findAll());
-
-        return "adminPage";
+        List<Sneakers> sneakers = sneakersService.findAll();
+        return "products";
     }
 
-    @PostMapping("/saveProduct")
+    @GetMapping("/men")
+    public String showMenSneakers(Model model) {
+        model.addAttribute("sneakers", sneakersService.findAllByGender("men"));
+        return "products";
+    }
+
+    @GetMapping("/women")
+    public String showWomenSneakers(Model model) {
+        model.addAttribute("sneakers", sneakersService.findAllByGender("women"));
+        return "products";
+    }
+
+    @GetMapping("/discount")
+    public String discountSneakers(Model model) {
+        model.addAttribute("sneakers",sneakersService.findAllWithDiscount());
+        return "products";
+    }
+
+    @GetMapping("/{id}")
+    public String product(@PathVariable Long id, Model model) {
+        Sneakers sneaker = sneakersService.findById(id);
+        model.addAttribute("product", sneaker);
+        model.addAttribute("productImages", imagesService.findAllImagesForSneaker(id));
+
+        return "product";
+    }
+
+    @PostMapping
     public String addProduct(@RequestParam("name") String name,
                              @RequestParam("discount") Long discount,
                              @RequestParam("price") Long price,
@@ -69,18 +92,18 @@ public class AdminController {
 
 
         for(int i = 0; i < images.size(); i++) {
-            Images newImage = new Images();
+            Images newImages = new Images();
 
-            newImage.setImage(images.get(i).getBytes());
-            newImage.setSneakers(sneakers);
-            sneakers.getImages().add(newImage);
-            imagesService.save(newImage);
+            newImages.setImage(images.get(i).getBytes());
+            newImages.setSneakers(sneakers);
+            sneakers.getImages().add(newImages);
+            imagesService.save(newImages);
         }
 
         return "redirect:/adminMenu";
     }
 
-    @PostMapping("/deleteProduct")
+    @PostMapping("/delete")
     public String deleteProduct(@RequestParam("sneakerId") Long id, Model model) {
         log.info("Product with id {} was deleted", id);
 

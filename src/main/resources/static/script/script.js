@@ -8,7 +8,7 @@ function removeDiv() {
     const parent = document.getElementById("myDiv");
     const child = document.createElement('a');
     child.href = '#';
-    child.textContent = 'Выйти';
+    child.textContent = 'Sign out';
     child.style.cssText = 'height: 3rem;\n' +
         '    width: 100%;\n' +
         '\n' +
