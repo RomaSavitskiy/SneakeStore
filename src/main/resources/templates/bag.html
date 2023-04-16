@@ -38,12 +38,26 @@
                         <br>
                         <br>
                         <div class="products-price-discount-div">
-                            <p class="product-card-price-discount-new" th:if="${sneaker.discount > 0}"
-                               th:text="${ 'USD ' + sneaker.price * (100 - sneaker.discount) / 100}">
-                            </p>
-                            <p class="product-card-price-discount-old" th:if="${sneaker.discount > 0}"
-                               th:text="${ 'USD ' + sneaker.price}">
-                            </p>
+                            <div>
+                                <p class="product-card-price-discount-new" th:if="${sneaker.discount > 0}"
+                                   th:text="${ 'USD ' + sneaker.price * (100 - sneaker.discount) / 100}">
+                                </p>
+                            </div>
+                            <div>
+                                <p class="product-card-price-discount-old" th:if="${sneaker.discount > 0}"
+                                   th:text="${ 'USD ' + sneaker.price}">
+                                </p>
+                             </div>
+                            <div>
+                                <p class="product-card-price-without-discount" th:if="${sneaker.discount == 0}"
+                                   th:text="${ 'USD ' + sneaker.price}">
+                                </p>
+                            </div>
+                            <div class="bag-delete-product-div">
+                                <a class="bag-delete-product-link" th:href="@{/bag/delete/{id}(id=${sneaker.id})}">
+                                    <img class="bag-delete-product-img" src="/img/trash.png">
+                                </a>
+                            </div>
                         </div>
                     </div>
                  </div>

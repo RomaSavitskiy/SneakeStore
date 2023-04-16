@@ -57,7 +57,7 @@ public class SneakersController {
         return "product";
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public String addProduct(@RequestParam("name") String name,
                              @RequestParam("discount") Long discount,
                              @RequestParam("price") Long price,

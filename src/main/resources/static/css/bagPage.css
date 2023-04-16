@@ -65,11 +65,22 @@ div {
 .products-price-discount-div {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+
+    width: 360px;
+    height: 40px;
+    margin-left: 0;
 }
 
 .product-card-price-discount-new {
-    align-items: start;
+    margin-left: 0;
+
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+
+.product-card-price-without-discount {
+    margin-left: 0;
 
     font-size: 25px;
     font-weight: 500;
@@ -77,13 +88,33 @@ div {
 }
 
 .product-card-price-discount-old {
-    margin-left: 0;
+    margin-left: 10px;
 
     font-size: 25px;
     font-weight: 500;
     color: black;
     opacity: 70%;
     text-decoration: line-through;
+}
+
+.bag-delete-product-div {
+    width: 30px;
+    height: 30px;
+
+    margin-left: auto;
+}
+
+.bag-delete-product-div:hover {
+    opacity: 70%;
+}
+
+.bag-delete-product-link {
+    display: block;
+}
+
+.bag-delete-product-img {
+    width: 30px;
+    height: 30px;
 }
 
 .bag-line {

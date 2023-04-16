@@ -8,7 +8,7 @@
 <body>
     <div th:replace="fragments/header :: header"></div>
     <div>
-        <form action="http://localhost:8083/sneakers" method="post" enctype="multipart/form-data" >
+        <form action="http://localhost:8083/sneakers/add" method="post" enctype="multipart/form-data" >
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
 
@@ -18,8 +18,8 @@
             <label for="price">Price:</label>
             <input type="text" id="price" name="price" value="200" required><br><br>
 
-            <label for="images">Image:</label>
-            <input type="file" id="images" name="images" required multiple><br><br>
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" required multiple><br><br>
 
             <input type="radio" name="gender" value="men" id="men">
             <label for="men">Мужской</label><br>
