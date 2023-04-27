@@ -27,7 +27,7 @@
             <div class="bag-container-line-separate" th:each="sneaker : ${session.bagSneakersList}">
                 <div class="bag-sneaker-container">
                     <div class="bag-img-container">
-                        <img class="bag-img" th:src="@{${'/api/images/' + sneaker.id}}">
+                        <img class="bag-img" th:src="@{${'/api/image/' + sneaker.id}}">
                     </div>
                     <div class="bag-sneakers-description">
                         <p class="bag-text-fold" th:text="${sneaker.name}"></p>

@@ -24,7 +24,7 @@
             <div class="products-div">
                 <div class="products-container" th:each="sneaker : ${sneakers}">
                        <div class="img-container">
-                           <img  class="product-img" th:src="@{${'/api/images/' + sneaker.id}}", th:alt="${'/api/images/' + sneaker.id}">
+                           <img  class="product-img" th:src="@{${'/api/image/' + sneaker.id}}", th:alt="${'/api/image/' + sneaker.id}">
                        </div>
                         <div class="product-description-container">
                             <p class="product-card-name" th:text="${sneaker.name}"></p>

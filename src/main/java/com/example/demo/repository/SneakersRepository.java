@@ -1,12 +1,10 @@
 package com.example.demo.repository;
 
 import com.example.demo.entity.Sneakers;
-import com.example.demo.service.SneakersService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 

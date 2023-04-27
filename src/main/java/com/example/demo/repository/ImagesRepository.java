@@ -1,18 +1,15 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.Images;
+import com.example.demo.entity.Image;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface ImagesRepository extends JpaRepository<Images, Long> {
-    @Query("SELECT u FROM Images u WHERE u.sneakers = ?1")
-    public List<Images> findBySneakerId();
+public interface ImagesRepository extends JpaRepository<Image, Long> {
+    @Query("SELECT i FROM Image i WHERE i.sneakers.id = ?1")
+    public Image findFirstForSneaker(Long id);
 
-    @Query("SELECT i FROM Images i WHERE i.sneakers.id = ?1")
-    public Images findFirstForSneaker(Long id);
-
-    @Query("SELECT u FROM Images u WHERE u.sneakers.id = ?1")
-    public List<Images> findAllImagesForSneaker(Long id);
+    @Query("SELECT u FROM Image u WHERE u.sneakers.id = ?1")
+    public List<Image> findAllImagesForSneaker(Long id);
 }

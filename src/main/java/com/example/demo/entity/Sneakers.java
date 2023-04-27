@@ -28,10 +28,10 @@ public class Sneakers {
     private String gender;
 
     @OneToMany(mappedBy = "sneakers",  cascade = CascadeType.ALL)
-    private List<Images> images = new ArrayList<>();
+    private List<Image> images = new ArrayList<>();
 
     @OneToOne(mappedBy = "sneakers",  cascade = CascadeType.ALL)
-    private Sizes sizes;
+    private Size size;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_date", nullable = false)

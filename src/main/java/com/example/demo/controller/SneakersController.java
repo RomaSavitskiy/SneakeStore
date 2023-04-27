@@ -58,47 +58,18 @@ public class SneakersController {
     }
 
     @PostMapping("/add")
-    public String addProduct(@RequestParam("name") String name,
-                             @RequestParam("discount") Long discount,
-                             @RequestParam("price") Long price,
-                             @RequestParam("image") List<MultipartFile> images,
-                             @RequestParam("gender") String gender,
-                             @RequestParam("size37") String size37,
-                             @RequestParam("size38") String size38,
-                             @RequestParam("size39") String size39,
-                             @RequestParam("size40") String size40,
-                             @RequestParam("size41") String size41,
-                             @RequestParam("size42") String size42,
-                             @RequestParam("size43") String size43,
-                             @RequestParam("size44") String size44,
-                             @RequestParam("size45") String size45) throws IOException {
+    public String addProduct(@RequestParam("name") String name, @RequestParam("discount") Long discount,
+                             @RequestParam("price") Long price, @RequestParam("image") List<MultipartFile> images,
+                             @RequestParam("gender") String gender, @RequestParam("size37") String size37,
+                             @RequestParam("size38") String size38, @RequestParam("size39") String size39,
+                             @RequestParam("size40") String size40, @RequestParam("size41") String size41,
+                             @RequestParam("size42") String size42, @RequestParam("size43") String size43,
+                             @RequestParam("size44") String size44, @RequestParam("size45") String size45) throws IOException {
 
-        Sneakers sneakers = sneakersService.setSneakersBody(name, discount, price, gender);
-        sneakersService.save(sneakers);
-
-        Sizes sizes = new Sizes();
-        sizes.setSize37(Long.valueOf(size37));
-        sizes.setSize38(Long.valueOf(size38));
-        sizes.setSize39(Long.valueOf(size39));
-        sizes.setSize40(Long.valueOf(size40));
-        sizes.setSize41(Long.valueOf(size41));
-        sizes.setSize42(Long.valueOf(size42));
-        sizes.setSize43(Long.valueOf(size43));
-        sizes.setSize44(Long.valueOf(size44));
-        sizes.setSize45(Long.valueOf(size45));
-        sizes.setSneakers(sneakers);
-        sneakers.setSizes(sizes);
-        sizesService.save(sizes);
-
-
-        for(int i = 0; i < images.size(); i++) {
-            Images newImages = new Images();
-
-            newImages.setImage(images.get(i).getBytes());
-            newImages.setSneakers(sneakers);
-            sneakers.getImages().add(newImages);
-            imagesService.save(newImages);
-        }
+        sneakersService.save(name, discount, price, images, gender,
+                size37, size38, size39,
+                size40, size41, size42,
+                size43, size44, size45);
 
         return "redirect:/adminMenu";
     }

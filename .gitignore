@@ -33,4 +33,4 @@ build/
 .vscode/
 
 # Project exclude paths
-/src/main/java/com/example/demo/convertor/
+#/src/main/java/com/example/demo/convertor/

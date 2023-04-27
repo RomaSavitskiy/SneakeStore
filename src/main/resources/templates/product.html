@@ -18,8 +18,8 @@
 <div>
     <div class="product-container" >
         <div class="product-img-container">
-            <div class="product-img-div" th:each="images : ${productImages}">
-                <img class="product-img" th:src="@{${'/api/images/sneaker-img/' + images.id}}">
+            <div class="product-img-div" th:each="image : ${productImages}">
+                <img class="product-img" th:src="@{${'/api/image/sneaker-img/' + image.id}}">
             </div>
         </div>
         <div class="product-information-container">
@@ -35,58 +35,58 @@
             <p>Select size</p>
             <form action="http://localhost:8083/bag/product" method="get" enctype="multipart/form-data" >
                 <div class="buttons">
-                    <label th:if="${product.getSizes().getSize37() == 0}">
-                        <input label="EU 37" type="radio" name="size" value="37" th:disabled="${product.getSizes().getSize37() == 0}" th:if="${product.getSizes().getSize37() == 0}" th:class="${'bar-disable'}" required>
+                    <label th:if="${product.getSize().getSize37() == 0}">
+                        <input label="EU 37" type="radio" name="size" value="37" th:disabled="${product.getSize().getSize37() == 0}" th:if="${product.getSize().getSize37() == 0}" th:class="${'bar-disable'}" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize37() != 0}" >
+                    <label th:if="${product.getSize().getSize37() != 0}" >
                         <input label="EU 37" type="radio" name="size" value="37" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize38() == 0}">
-                        <input label="EU 38" type="radio" name="size" value="38" th:disabled="${product.getSizes().getSize38() == 0}" th:if="${product.getSizes().getSize38() == 0}" th:class="${'bar-disable'}" required>
+                    <label th:if="${product.getSize().getSize38() == 0}">
+                        <input label="EU 38" type="radio" name="size" value="38" th:disabled="${product.getSize().getSize38() == 0}" th:if="${product.getSize().getSize38() == 0}" th:class="${'bar-disable'}" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize38() != 0}" >
+                    <label th:if="${product.getSize().getSize38() != 0}" >
                         <input label="EU 38" type="radio" name="size" value="38" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize39() == 0}">
-                        <input label="EU 39" type="radio" name="size" value="39" th:disabled="${product.getSizes().getSize39() == 0}" th:if="${product.getSizes().getSize39() == 0}" th:class="${'bar-disable'}" required>
+                    <label th:if="${product.getSize().getSize39() == 0}">
+                        <input label="EU 39" type="radio" name="size" value="39" th:disabled="${product.getSize().getSize39() == 0}" th:if="${product.getSize().getSize39() == 0}" th:class="${'bar-disable'}" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize39() != 0}" >
+                    <label th:if="${product.getSize().getSize39() != 0}" >
                         <input label="EU 39" type="radio" name="size" value="39" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize40() == 0}" >
-                        <input label="EU 40" type="radio" name="size" value="40" th:disabled="${product.getSizes().getSize40() == 0}" th:if="${product.getSizes().getSize40() == 0}" th:class="${'bar-disable'}" required>
+                    <label th:if="${product.getSize().getSize40() == 0}" >
+                        <input label="EU 40" type="radio" name="size" value="40" th:disabled="${product.getSize().getSize40() == 0}" th:if="${product.getSize().getSize40() == 0}" th:class="${'bar-disable'}" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize40() != 0}" >
+                    <label th:if="${product.getSize().getSize40() != 0}" >
                         <input label="EU 40" type="radio" name="size" value="40" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize41() == 0}">
-                        <input label="EU 41" type="radio" name="size" value="41" th:disabled="${product.getSizes().getSize41() == 0}" th:if="${product.getSizes().getSize41() == 0}" th:class="${'bar-disable'}" required>
+                    <label th:if="${product.getSize().getSize41() == 0}">
+                        <input label="EU 41" type="radio" name="size" value="41" th:disabled="${product.getSize().getSize41() == 0}" th:if="${product.getSize().getSize41() == 0}" th:class="${'bar-disable'}" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize41() != 0}" >
+                    <label th:if="${product.getSize().getSize41() != 0}" >
                         <input label="EU 41" type="radio" name="size" value="41" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize42() == 0}">
-                        <input label="EU 42" type="radio" name="size" value="42" th:disabled="${product.getSizes().getSize42() == 0}" th:if="${product.getSizes().getSize42() == 0}" th:class="${'bar-disable'}" required>
+                    <label th:if="${product.getSize().getSize42() == 0}">
+                        <input label="EU 42" type="radio" name="size" value="42" th:disabled="${product.getSize().getSize42() == 0}" th:if="${product.getSize().getSize42() == 0}" th:class="${'bar-disable'}" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize42() != 0}" >
+                    <label th:if="${product.getSize().getSize42() != 0}" >
                         <input label="EU 42" type="radio" name="size" value="42" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize43() == 0}">
-                        <input label="EU 43" type="radio" name="size" value="43" th:disabled="${product.getSizes().getSize43() == 0}" th:if="${product.getSizes().getSize43() == 0}" th:class="${'bar-disable'}" required>
+                    <label th:if="${product.getSize().getSize43() == 0}">
+                        <input label="EU 43" type="radio" name="size" value="43" th:disabled="${product.getSize().getSize43() == 0}" th:if="${product.getSize().getSize43() == 0}" th:class="${'bar-disable'}" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize43() != 0}" >
+                    <label th:if="${product.getSize().getSize43() != 0}" >
                         <input label="EU 43" type="radio" name="size" value="43" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize44() == 0}">
-                        <input label="EU 44" type="radio" name="size" value="44" th:disabled="${product.getSizes().getSize44() == 0}" th:if="${product.getSizes().getSize44() == 0}" th:class="${'bar-disable'}" required>
+                    <label th:if="${product.getSize().getSize44() == 0}">
+                        <input label="EU 44" type="radio" name="size" value="44" th:disabled="${product.getSize().getSize44() == 0}" th:if="${product.getSize().getSize44() == 0}" th:class="${'bar-disable'}" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize44() != 0}" >
+                    <label th:if="${product.getSize().getSize44() != 0}" >
                         <input label="EU 44" type="radio" name="size" value="44" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize45() == 0}">
-                        <input label="EU 45" type="radio" name="size" value="45" th:disabled="${product.getSizes().getSize45() == 0}" th:if="${product.getSizes().getSize45() == 0}" th:class="${'bar-disable'}" required>
+                    <label th:if="${product.getSize().getSize45() == 0}">
+                        <input label="EU 45" type="radio" name="size" value="45" th:disabled="${product.getSize().getSize45() == 0}" th:if="${product.getSize().getSize45() == 0}" th:class="${'bar-disable'}" required>
                     </label>
-                    <label th:if="${product.getSizes().getSize45() != 0}" >
+                    <label th:if="${product.getSize().getSize45() != 0}" >
                         <input label="EU 45" type="radio" name="size" value="45" required>
                     </label>
                 </div>

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Images;
+import com.example.demo.entity.Image;
 import com.example.demo.service.ImagesService;
 import com.example.demo.service.SneakersService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/images")
+@RequestMapping("/api/image")
 @RequiredArgsConstructor
 @Slf4j
 public class ImageRestController {
@@ -20,9 +20,9 @@ public class ImageRestController {
 
     @GetMapping(value = "{id}")
     public void showImage(@PathVariable Long id, HttpServletResponse response) throws IOException {
-        Images images = imagesService.findFirstForSneaker(id);
+        Image image = imagesService.findFirstForSneaker(id);
         response.setContentType("image/jpeg,image/png,image/gif,image/jpg");
-        response.getOutputStream().write(images.getImage());
+        response.getOutputStream().write(image.getImage());
         response.getOutputStream().close();
     }
 
