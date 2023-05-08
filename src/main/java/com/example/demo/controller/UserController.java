@@ -2,30 +2,37 @@ package com.example.demo.controller;
 
 import com.example.demo.DTO.AuthRequest;
 /*import com.example.demo.jwt.JwtTokenUtil;*/
+import com.example.demo.DTO.AuthResponse;
+import com.example.demo.DTO.UserDto;
+import com.example.demo.entity.User;
+import com.example.demo.jwt.JwtTokenUtil;
 import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
 
 
-@Controller("user")
+@RestController
+@RequestMapping("/user")
 @RequiredArgsConstructor
+@Slf4j
 public class UserController {
     private final UserService userService;
-    /*private final JwtTokenUtil jwtTokenUtil;*/
+    private final JwtTokenUtil jwtTokenUtil;
 
-    @PostMapping("/registration")
+    @PostMapping ("/save")
     public void createUser(@RequestBody AuthRequest authRequest) {
         userService.save(authRequest);
     }
 
-    /*@PostMapping("/login")
+    @PostMapping  ("/login")
     public AuthResponse login(@RequestBody AuthRequest authRequest) {
         User user = userService.getTokenForUserIfExists(authRequest);
+        log.info("Hello world");
         return new AuthResponse(jwtTokenUtil.generateToken(user.getLogin()));
-    }*/
+    }
 
     @PostMapping("/add")
     public String add() {

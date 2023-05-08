@@ -5,11 +5,13 @@ import com.example.demo.DTO.UserDto;
 import com.example.demo.convertor.UserConvertor;
 import com.example.demo.entity.Role;
 import com.example.demo.entity.User;
+import com.example.demo.jwt.JwtTokenUtil;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 /*import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;*/
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,8 +21,9 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    /*private final BCryptPasswordEncoder passwordEncoder;*/
+    private final BCryptPasswordEncoder passwordEncoder;
     private final UserConvertor userConvertor;
+    private final JwtTokenUtil jwtTokenUtil;
 
 
     public void save(AuthRequest authRequest) {
@@ -39,7 +42,7 @@ public class UserService {
         User user = userConvertor.convert(userDto);
 
         user.setRole(role);
-       /* user.setPassword(passwordEncoder.encode(userDto.getPassword()));*/
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
         userRepository.save(user);
 
@@ -54,9 +57,9 @@ public class UserService {
     public Optional<User> findByLoginAndPassword(String login, String password) {
         User user = findByLogin(login).orElseThrow();
 
-      /*  if (passwordEncoder.matches(password, user.getPassword())) {
+        if (passwordEncoder.matches(password, user.getPassword())) {
             return Optional.of(user);
-        }*/
+        }
 
         return null;
     }
@@ -65,6 +68,6 @@ public class UserService {
         return findByLoginAndPassword(authRequest.getLogin(), authRequest.getPassword())
                 .orElseThrow();
 
-        //return jwtTokenUtil.generateToken(user.getLogin());
+       /* return jwtTokenUtil.generateToken(user.getLogin());*/
     }
 }

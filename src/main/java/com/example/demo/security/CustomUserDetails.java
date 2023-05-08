@@ -1,4 +1,3 @@
-/*
 package com.example.demo.security;
 
 import com.example.demo.entity.User;
@@ -61,4 +60,3 @@ public class CustomUserDetails implements UserDetails {
         return true;
     }
 }
-*/

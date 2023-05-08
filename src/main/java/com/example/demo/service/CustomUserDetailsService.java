@@ -1,8 +1,8 @@
-/*package com.example.demo.service;
+package com.example.demo.service;
 
+import com.example.demo.entity.User;
 import com.example.demo.security.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
-import com.example.demo.entity.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,4 +19,4 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         return CustomUserDetails.getUserDetailsFromUser(user);
     }
-}*/
+}

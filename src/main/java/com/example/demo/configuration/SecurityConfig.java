@@ -1,4 +1,4 @@
-/*package com.example.demo.configuration;
+package com.example.demo.configuration;
 
 import com.example.demo.jwt.JwtFilter;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -23,20 +24,23 @@ public class SecurityConfig {
                 .cors().disable()
                 .authorizeRequests()
                 .requestMatchers("/adminMenu/**").hasRole("ADMIN")
-                .requestMatchers("/registration", "/swagger-ui/**", "/v3/api-docs/**", "/main",
-                        "/sneakers/**", "/api/image/**", "/bag", "/css/**", "/img/**", "/bag/**",
-                        "/registration", "/login", "/login.html", "/swagger-ui/**", "/v3/api-docs/**")
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/main",
+                        "/sneakers/**", "/api/image/**", "/css/**", "/img/**", "/bag/**",
+                        "/registration",
+                        "/user/**")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/main")
-                    .failureUrl("/login")
-                    .permitAll();
-              *//*  .and()
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)*//*
-        ;
+                .successForwardUrl("/main")
+                    .permitAll()
+                .and()
+                .logout()
+                    .permitAll()
+                .and()
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 
@@ -56,4 +60,4 @@ public class SecurityConfig {
                 .build();
         return new InMemoryUserDetailsManager(user1, user2, admin);
     }
-}*/
+}
