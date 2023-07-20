@@ -67,7 +67,6 @@ public class UserService {
     public User getTokenForUserIfExists(AuthRequest authRequest) {
         return findByLoginAndPassword(authRequest.getLogin(), authRequest.getPassword())
                 .orElseThrow();
-
        /* return jwtTokenUtil.generateToken(user.getLogin());*/
     }
 }

@@ -15,10 +15,6 @@ import java.util.List;
 public class ImagesService {
     private final ImagesRepository imagesRepository;
 
-/*    public List<Image> findBySneaker() {
-        return imagesRepository.findBySneakerId();
-    }*/
-
     public Image findFirstForSneaker(Long id) {
         return imagesRepository.findAllImagesForSneaker(id).get(0);
     }

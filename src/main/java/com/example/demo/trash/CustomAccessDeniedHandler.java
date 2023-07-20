@@ -1,4 +1,4 @@
-package com.example.demo.security;
+/*package com.example.demo.security;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,4 +17,4 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
             throws IOException, ServletException {
         response.sendRedirect(ERROR_PAGE_PATH);
     }
-}
+}*/

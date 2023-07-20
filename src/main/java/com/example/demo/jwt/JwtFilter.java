@@ -42,6 +42,23 @@ public class JwtFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    /*@Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
+
+        if (!request.getRequestURI().equals("/login")) { // Проверяем, не является ли текущий запрос страницей входа
+            Cookie cookie = WebUtils.getCookie(request, "jwtToken");
+
+            if (cookie != null && jwtTokenUtil.validateToken(cookie.getValue())) {
+                String username = jwtTokenUtil.getLoginFromToken(cookie.getValue());
+                Authentication authentication = new UsernamePasswordAuthenticationToken(username, null);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
+        }
+
+        filterChain.doFilter(request, response);
+    }*/
+
     private void setAuthenticationDetails(HttpServletRequest request, String token) {
         CustomUserDetails customUserDetails = (CustomUserDetails) customUserDetailsService.loadUserByUsername(jwtTokenUtil.getLoginFromToken(token));
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(customUserDetails, null, customUserDetails.getAuthorities());
