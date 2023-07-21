@@ -35,6 +35,7 @@ public class BagController {
     public String addProductToBag(@RequestParam("size") Long size,
                                   HttpSession session,
                                   @RequestParam("productId") String id)  {
+
         List<Sneakers> bagSneakers = (List<Sneakers>) session.getAttribute("bagSneakersList");
         bagSneakers.add(sneakersService.findById(Long.valueOf(id)));
         session.setAttribute("bagSneakersList", bagSneakers);
