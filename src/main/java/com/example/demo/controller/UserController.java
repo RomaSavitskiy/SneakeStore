@@ -1,16 +1,14 @@
 package com.example.demo.controller;
 
 import com.example.demo.DTO.AuthRequest;
-import com.example.demo.DTO.AuthResponse;
-import com.example.demo.entity.User;
 import com.example.demo.jwt.JwtTokenUtil;
 import com.example.demo.service.UserService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
@@ -21,7 +19,8 @@ public class UserController {
     private final JwtTokenUtil jwtTokenUtil;
 
     @PostMapping ("/save")
-    public void createUser(@RequestBody AuthRequest authRequest) {
+    public void createUser(@RequestParam String password, @RequestParam String login) {
+        AuthRequest authRequest = new AuthRequest(login, password);
         userService.save(authRequest);
     }
 
@@ -36,10 +35,4 @@ public class UserController {
 
         return new AuthResponse(token);
     }*/
-
-    @PostMapping("/add")
-    public String add() {
-
-        return "index";
-    }
 }

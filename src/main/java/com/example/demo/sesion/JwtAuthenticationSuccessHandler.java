@@ -13,7 +13,7 @@ public class JwtAuthenticationSuccessHandler implements AuthenticationSuccessHan
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        // Получите JWT токен и сохраните его в сессии
+        // Получите JWT токен и сохраните его в сесси
         HttpSession session = request.getSession();
         String token = (String) session.getAttribute("jwtToken");
 
