@@ -23,19 +23,24 @@
           </ul>
         </nav>
       </div>
-      <div class="admin-link-div">
-        <a  class="signin-link" href="http://localhost:8083/admin/menu" id="adminLink">
+      <div th:if="${session.user_role == 'ROLE_ADMIN'}" class="admin-link-div">
+        <a class="signin-link" href="http://localhost:8083/admin/menu" id="adminLink">
           Admin menu
         </a>
       </div>
-      <div class="signin-div" id="myDiv">
-        <a  class="signin-link" href="http://localhost:8083/login" id="SignInLink">
+      <div th:if="${session.username == null}" class="signin-div" id="myDiv">
+        <a class="signin-link" href="http://localhost:8083/login" id="SignInLink">
           Sign in
         </a>
       </div>
-      <div class="signup-div">
+      <div th:if="${session.username == null}" class="signup-div">
         <a class="signup-link" href="http://localhost:8083/registration" id="SignUpLink">
           Sign up
+        </a>
+      </div>
+      <div th:if="${session.username}" class="signup-div">
+        <a class="signup-link" href="http://localhost:8083/logout" id="Logout">
+          Logout
         </a>
       </div>
       <div class="bag-link-div">
