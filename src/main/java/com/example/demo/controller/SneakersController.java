@@ -83,13 +83,13 @@ public class SneakersController {
         if (!idList.contains(id)) {
             model.addAttribute("deleteResult", "Product with this ID is not found");
             model.addAttribute("sneakers", sneakersService.findAll());
-            return "adminPage";
+            return "admin-menu";
         }
 
         sneakersService.deleteById(id);
         model.addAttribute("deleteResult", "Success delete");
         model.addAttribute("sneakers", sneakersService.findAll());
 
-        return "adminPage";
+        return "admin-menu";
     }
 }

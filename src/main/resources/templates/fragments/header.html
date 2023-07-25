@@ -28,6 +28,9 @@
           Admin menu
         </a>
       </div>
+      <div th:if="${session.username}" th:text="${session.username}" class="username_div">
+        <h1 class="username_text"></h1>
+      </div>
       <div th:if="${session.username == null}" class="signin-div" id="myDiv">
         <a class="signin-link" href="http://localhost:8083/login" id="SignInLink">
           Sign in

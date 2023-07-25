@@ -28,7 +28,6 @@ public class SecurityConfig {
                         .permitAll()
                         .anyRequest().authenticated())
         		.formLogin(formLogin-> formLogin.loginPage("/login")
-                      /*  .defaultSuccessUrl("/main", true)*/
                         .successHandler(customAuthenticationSuccessHandler)
                         .permitAll());
 

@@ -5,18 +5,29 @@
     <title>Registration</title>
     <link rel="stylesheet" href="/css/main.css" type="text/css">
     <link rel="stylesheet" href="/static/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/login.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/login.css" type="text/css">
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
 <body>
-    <form action="http://localhost:8083/user/save" method="post">
-        <label for="login">Login</label>
-        <input type="text" id="login" name="login" value="login">
-        <label for="login">Password</label>
-        <input type="text" id="password" name="password" value="password">
+    <div class="login-div">
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <form th:action="@{/user/save}" method="post">
+            <h3>Registration Here</h3>
 
-        <input type="submit" value="Sign Up">
-    </form>
+            <label for="username">Username</label>
+            <input type="text" placeholder="Email or Phone" id="username" name="username">
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password">
+
+            <button>Register</button>
+        </form>
+    </div>
 </body>
 <div th:replace="fragments/footer :: footer"></div>
 </body>

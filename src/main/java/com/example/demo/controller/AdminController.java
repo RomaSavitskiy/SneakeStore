@@ -17,6 +17,6 @@ public class AdminController {
     @GetMapping("/menu")
     public String adminPage(Model model) {
         model.addAttribute("sneakers", sneakersService.findAll());
-        return "adminPage";
+        return "admin-menu";
     }
 }

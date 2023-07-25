@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 @RequestMapping("/user")
@@ -20,21 +19,9 @@ public class UserController {
     private final JwtTokenUtil jwtTokenUtil;
 
     @PostMapping ("/save")
-    public String createUser(@RequestParam String password, @RequestParam String login) {
-        AuthRequest authRequest = new AuthRequest(login, password);
+    public String createUser(@RequestParam String username, @RequestParam String password) {
+        AuthRequest authRequest = new AuthRequest(username, password);
         userService.save(authRequest);
         return "index";
     }
-
-    /*@PostMapping  ("/login")
-    public AuthResponse login(@RequestBody AuthRequest authRequest,
-                              HttpServletResponse response, HttpServletRequest request) {
-        User user = userService.getTokenForUserIfExists(authRequest);
-        String token = jwtTokenUtil.generateToken(user.getLogin());
-
-        HttpSession session = request.getSession();
-        session.setAttribute("jwtToken", token);
-
-        return new AuthResponse(token);
-    }*/
 }

@@ -15,7 +15,6 @@ import java.io.IOException;
 @RequiredArgsConstructor
 @Slf4j
 public class ImageRestController {
-    private final SneakersService sneakersService;
     private final ImagesService imagesService;
 
     @GetMapping(value = "{id}")

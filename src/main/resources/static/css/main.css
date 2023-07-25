@@ -149,6 +149,20 @@ body {
     opacity: 0.7;
 }
 
+.username_div {
+    position: absolute;
+    width: 8rem;
+    height: 3rem;
+
+    margin-left: 80%;
+    margin-top: 1rem;
+
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 3rem;
+    color: black;
+}
+
 /* Main */
 main {
 
